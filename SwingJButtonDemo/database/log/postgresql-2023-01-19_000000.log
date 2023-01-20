@@ -1,0 +1,3 @@
+2023-01-20 14:50:56.618 CET [20284] FATAL:  password authentication failed for user "Serafin"
+2023-01-20 14:50:56.618 CET [20284] DETAIL:  Role "Serafin" does not exist.
+	Connection matched pg_hba.conf line 89: "host    all             all             ::1/128                 scram-sha-256"

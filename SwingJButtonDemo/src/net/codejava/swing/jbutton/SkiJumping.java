@@ -14,6 +14,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -42,6 +44,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.text.DefaultCaret;
+
+import org.postgresql.Driver;
 
 public class SkiJumping extends JFrame implements ActionListener {
 	static Connection c = null;
@@ -478,15 +482,13 @@ public class SkiJumping extends JFrame implements ActionListener {
                                     } catch (Exception e11) {
                                         e11.printStackTrace();
                                         System.err.println(e11.getClass().getName()+": "+e11.getMessage());
-                                        System.exit(0);
+                                    
                                     }
-                                    frame1111.dispose();
                                 });	
                             	frame1111.setVisible(true);
                         		frame1111.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         		frame1111.setLocationRelativeTo(null);
                         	}
-                        	frame1.dispose();
                         });
                     	frame1.setVisible(true);
                 		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -523,10 +525,12 @@ public class SkiJumping extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(SkiJumping.this, "Niepoprawne hasło!");		
 	}
 	
-	public static void main(String[] args) throws SQLException, IOException {
+	public static void main(String[] args) throws SQLException, IOException, InstantiationException, IllegalAccessException, ClassNotFoundException {
         try {
+        	//Class.forName("com.postgresql.jdbc.Driver");
 			c = DriverManager
-			   .getConnection("jdbc:postgresql://localhost/postgres",
+			   .getConnection("jdbc:postgresql://localhost/Users/Serafin/Downloads/"
+			   		+ "SwingJButtonDemo/SwingJButtonDemo/database",
 			   "postgres", "iks");
 			File f = new File("/src/tabele.sql");
 		} catch (SQLException e) {
