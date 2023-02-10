@@ -1,6 +1,7 @@
 package skijumping;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -50,23 +51,6 @@ public class StartFrame extends AppJFrame{
         add(layers);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-    }
-    public static void main(String[] args){
-        Connection connection = null;
-        try {
-            //Class.forName("com.postgresql.jdbc.Driver");
-            connection = DriverManager
-                    .getConnection("jdbc:postgresql://localhost/postgres",
-                            "postgres", "iks");
-            //File f = new File("/src/tabele.sql");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-            System.exit(0);
-        }
-        StartFrame startFrame = new StartFrame();
-        startFrame.startMainframe(connection);
 
     }
 }
